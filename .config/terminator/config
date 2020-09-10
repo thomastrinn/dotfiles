@@ -13,11 +13,21 @@
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
 [layouts]
   [[default]]
-    [[[window0]]]
+    [[[child0]]]
       type = Window
       parent = ""
-    [[[child1]]]
+      order = 0
+      position = 1856:104
+      maximised = False
+      fullscreen = False
+      size = 1617, 836
+      title = /bin/zsh
+      last_active_term = 15635c1f-6a29-4fbf-b3d9-c7c3a18b4273
+      last_active_window = True
+    [[[terminal1]]]
       type = Terminal
-      parent = window0
+      parent = child0
+      order = 0
       profile = default
+      uuid = 15635c1f-6a29-4fbf-b3d9-c7c3a18b4273
 [plugins]
