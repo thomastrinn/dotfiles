@@ -1,0 +1,74 @@
+env:
+  TERM: alacritty
+
+window:
+  dimensions:
+    columns: 120
+    lines: 40
+    
+  padding:
+    x: 10
+    y: 10
+
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: true
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 10000
+
+  # Scrolling distance multiplier.
+  multiplier: 3
+
+# Font configuration (changes require restart)
+font:
+  normal:
+    family: "Hack"
+    style: Regular
+  bold:
+    family: "Hack"
+    style: Bold
+  italic:
+    family: "Hack"
+    style: Italic
+  bold_italic:
+    family: "Hack"
+    style: Bold Italic
+  
+  size: 13
+
+draw_bold_text_with_bright_colors: true
+
+live_config_reload: true
+
+schemes:
+  ayu_mirage: &ayu_mirage
+    # Default colors
+    primary:
+      background: '#202734'
+      foreground: '#CBCCC6'
+
+    # Normal colors
+    normal:
+      black: '#191E2A'
+      red: '#FF3333'
+      green: '#BAE67E'
+      yellow: '#FFA759'
+      blue: '#73D0FF'
+      magenta: '#FFD580'
+      cyan: '#95E6CB'
+      white: '#C7C7C7'
+
+    # Bright colors
+    bright:
+      black: '#686868'
+      red: '#F27983'
+      green: '#A6CC70'
+      yellow: '#FFCC66'
+      blue: '#5CCFE6'
+      magenta: '#FFEE99'
+      cyan: '#95E6CB'
+      white: '#FFFFFF'
+  
+colors: *ayu_mirage
