@@ -10,6 +10,7 @@ include-file = $HOME/.config/polybar/modules.conf
 ;    Herbstluft WM Bars
 ;===================================================== 
 
+; Primary monitor bar
 [bar/hlwm-main-bar]
 inherit = bar/master
 
@@ -17,43 +18,13 @@ inherit = bar/master
 ; primary monitor '$(xrandr -q | grep " connected primary" | cut -d ' ' -f1)'
 monitor = DP1
 
-; Position of the system tray window
-; If empty or undefined, tray support will be disabled
-; NOTE: A center aligned tray will cover center aligned modules
-;
-; Available positions:
-;   left
-;   center
-;   right
-;   none
-tray-position = right
-
-; If true, the bar will not shift its
-; contents when the tray changes
-;tray-detached = false
-
-; Tray icon max size
-tray-maxsize = 16
-
-; Background color for the tray container 
-; ARGB color (e.g. #f00, #ff992a, #ddff1023)
-; By default the tray container will use the bar
-; background color.
-;tray-background = ${root.background}
-
-; Tray offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
-tray-offset-x = 0
-tray-offset-y = 0
-
-; Pad the sides of each tray icon
-tray-padding = 0
-
-; Scale factor for tray clients
-tray-scale = 1.0
+; load system tray settings
+include-file = $HOME/.config/polybar/system-tray.conf
 
 modules-left = hlwm-workspaces 
 modules-right = clock pulseaudio
 
+; Secondary monitor(s) bar
 [bar/hlwm-secondary-bar]
 inherit = bar/master
 
