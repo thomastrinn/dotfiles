@@ -1,48 +1,21 @@
-[colors]
-background = #202734
-foreground = #CBCCC6
+;=====================================================
+;     File Includes
+;=====================================================
 
-[font]
-font-0 = Hack-Regular:size=12;3
-font-1 = TerminessTTF Nerd Font:style=Medium:size=14;3
+[section/base]
+include-file = $HOME/.config/polybar/master.conf
+include-file = $HOME/.config/polybar/modules.conf
 
-[bar/mainBar]
+;=====================================================
+;    Herbstluft WM Bars
+;===================================================== 
+
+[bar/hlwm-main-bar]
+inherit = bar/master
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+; primary monitor '$(xrandr -q | grep " connected primary" | cut -d ' ' -f1)'
 monitor = DP1
-width = 100%
-height = 24
-border-top-size = 4
-border-bottom-size = 4
-
-border-color = ${colors.background}
-
-; Number of spaces to add at the beginning/end of the bar
-; Individual side values can be defined using:
-;   padding-{left,right}
-padding = 1
-
-; Number of spaces to add before/after each module
-; Individual side values can be defined using:
-;   module-margin-{left,right}
-module-margin = 1
-
-; Put the bar at the bottom of the screen
-bottom = false
-
-; Prefer fixed center position for the `modules-center` block. 
-fixed-center = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-; Fonts are defined using <font-name>;<vertical-offset>
-; Font names are specified using a fontconfig pattern.
-;   font-0 = NotoSans-Regular:size=8;2
-;   font-1 = MaterialIcons:size=10
-;   font-2 = Termsynu:size=8;-1
-;   font-3 = FontAwesome:size=10
-; See the Fonts wiki page for more details
-font-0 = ${font.font-0}
-font-1 = ${font.font-1}
 
 ; Position of the system tray window
 ; If empty or undefined, tray support will be disabled
@@ -78,117 +51,13 @@ tray-padding = 0
 ; Scale factor for tray clients
 tray-scale = 1.0
 
-modules-left = info-hlwm-workspaces 
-modules-right = date pulseaudio
+modules-left = hlwm-workspaces 
+modules-right = clock pulseaudio
 
-[bar/workspaceBar]
+[bar/hlwm-secondary-bar]
+inherit = bar/master
+
 monitor = HDMI2
 
-width = 100%
-height = 32
-border-top-size = 0
-
-border-color = ${colors.background}
-
-; Number of spaces to add at the beginning/end of the bar
-; Individual side values can be defined using:
-;   padding-{left,right}
-padding = 1
-
-; Number of spaces to add before/after each module
-; Individual side values can be defined using:
-;   module-margin-{left,right}
-module-margin = 0
-
-; Put the bar at the bottom of the screen
-bottom = false
-
-; Prefer fixed center position for the `modules-center` block.
-fixed-center = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-; Fonts are defined using <font-name>;<vertical-offset>
-; Font names are specified using a fontconfig pattern.
-;   font-0 = NotoSans-Regular:size=8;2
-;   font-1 = MaterialIcons:size=10
-;   font-2 = Termsynu:size=8;-1
-;   font-3 = FontAwesome:size=10
-; See the Fonts wiki page for more details
-font-0 = ${font.font-0}
-font-1 = ${font.font-1}
-
-modules-left = info-hlwm-workspaces
-
-[module/date]
-type = internal/date
-
-time = %H:%M
-date = %a %d %b
-
-label = "%time% %date%"
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
-; If not, uses default sink
-sink = alsa_output.pci-0000_00_1f.3.analog-stereo
-
-; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
-; Default: true
-use-ui-max = false
-
-; Interval for volume increase/decrease (in percent points)
-; Default: 5
-interval = 5
-
-; Available tags:
-;   <label-volume> (default)
-;   <ramp-volume>
-;   <bar-volume>
-format-volume = <ramp-volume> <label-volume>
-
-; Available tags:
-;   <label-muted> (default)
-;   <ramp-volume>
-;   <bar-volume>
-format-muted = <ramp-volume> <label-muted>
-
-; Available tokens:
-;   %percentage% (default)
-;   %decibels%
-;label-volume = %percentage%%
-
-; Available tokens:
-;   %percentage% (default)
-;   %decibels%
-label-muted = 婢 muted
-label-muted-foreground = #666
-
-; Only applies if <ramp-volume> is used
-ramp-volume-0 = 
-ramp-volume-1 = 墳
-ramp-volume-2 = 
-
-; Right and Middle click
-click-right = pavucontrol
-; click-middle = 
-
-[module/info-hlwm-workspaces]
-type = custom/script
-exec = ~/.config/polybar/info-hlwm-workspaces.sh
-tail = true
-scroll-up = herbstclient use_index -1 --skip-visible &
-scroll-down = herbstclient use_index +1 --skip-visible &
-
-[global/wm]
-; Adjust the _NET_WM_STRUT_PARTIAL top value
-;   Used for top aligned bars
-margin-bottom = 0
-
-; Adjust the _NET_WM_STRUT_PARTIAL bottom value
-;   Used for bottom aligned bars
-margin-top = 0 
+modules-left = hlwm-workspaces
 
