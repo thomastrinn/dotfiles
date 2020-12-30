@@ -9,9 +9,19 @@ window:
   padding:
     x: 10
     y: 10
+  
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: false
 
   # Allow terminal applications to change Alacritty's window title.
-  dynamic_title: true
+  dynamic_title: false
+
+  # Window decorations
+  #
+  # Values for `decorations`:
+  #     - full: Borders and title bar
+  #     - none: Neither borders nor title bar
+  decorations: none
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
