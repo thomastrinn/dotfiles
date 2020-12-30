@@ -22,7 +22,7 @@ monitor = DP1
 include-file = $HOME/.config/polybar/system-tray.conf
 
 modules-left = hlwm-workspaces 
-modules-right = clock pulseaudio
+modules-right = clock pulseaudio logout
 
 ; Secondary monitor(s) bar
 [bar/hlwm-secondary-bar]
