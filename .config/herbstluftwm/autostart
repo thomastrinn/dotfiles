@@ -19,10 +19,6 @@ for id in `/usr/bin/xinput list | /bin/grep 'Mouse' | /bin/grep -o '[0-9][0-9]'`
     xinput set-button-map $id 3 2 1;
 done;
 
-# autostart:
-lxpolkit &
-nm-applet &
-
 # remove all existing keybindings
 hc keyunbind --all
 
@@ -193,3 +189,7 @@ for monitor in $(hc list_monitors | cut -d: -f1) ; do
     hc pad $monitor $panel_height
 done
 $panel &
+
+# autostart applications
+lxpolkit &
+nm-applet &
