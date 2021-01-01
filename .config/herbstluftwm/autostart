@@ -181,14 +181,14 @@ hc unlock
 # hc detect_monitors
 hc set_monitors 1680x1050+0+0 1920x1200+1680+0
 
+# autostart applications
+lxsession &
+nm-applet &
+
 # panel
-panel=~/.config/polybar/launch.sh
 panel_height=32
 for monitor in $(hc list_monitors | cut -d: -f1) ; do
     hc pad $monitor $panel_height
 done
-$panel &
+~/.config/polybar/launch.sh &
 
-# autostart applications
-lxpolkit &
-nm-applet &
