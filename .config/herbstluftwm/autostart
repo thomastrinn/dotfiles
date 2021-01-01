@@ -185,7 +185,6 @@ hc set_monitors 1680x1050+0+0 1920x1200+1680+0
 panel=~/.config/polybar/launch.sh
 panel_height=32
 for monitor in $(hc list_monitors | cut -d: -f1) ; do
-    # start it on each monitor
     hc pad $monitor $panel_height
 done
 $panel &
