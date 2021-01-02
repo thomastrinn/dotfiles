@@ -8,3 +8,7 @@ case "$ANS" in
     *Logout) loginctl terminate-session $(loginctl session-status | head -n 1 | awk '{print $1}') ;;
     *Reboot) systemctl reboot ;;
     *Shutdown) systemctl poweroff
+esac
+
+exit 0
+
