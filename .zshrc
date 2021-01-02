@@ -153,6 +153,12 @@ export LESS=-r
 # dotfile config alias
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+if [ -n "$DESKTOP_SESSION" ];then
+	eval $(gnome-keyring-daemon --start)
+	export SSH_AUTH_SOCK
+fi
+
+
 # Powerline-shell
 #function powerline_precmd() {
 #    PS1="$(powerline-shell --shell zsh $?)"
