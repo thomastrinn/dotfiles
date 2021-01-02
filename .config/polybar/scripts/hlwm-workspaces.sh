@@ -17,15 +17,17 @@ herbstclient --idle "tag_*" 2>/dev/null | {
                     ':')
                         # : the tag is not empty
                         # TODO Add your formatting tags for occupied workspaces
-                        ;;
+			;;
                     '!')
                         # ! the tag contains an urgent window
                         # TODO Add your formatting tags for workspaces with the urgent hint
+			echo "%{F#202734}%{B#FFA759}"
                         ;;
                     '-')
                         # - the tag is viewed on a monitor that is not focused
                         # TODO Add your formatting tags for visible but not focused workspaces
-                        ;;
+                        echo "%{F#202734}%{B#5D5F54}"
+			;;
                     *)
                         # . the tag is empty
                         # There are also other possible prefixes but they won't appear here
@@ -33,7 +35,7 @@ herbstclient --idle "tag_*" 2>/dev/null | {
                         ;;
                 esac
 
-	        echo "%{A1:herbstclient use ${i:1}:}  ${i:1}  %{A -u -o F- B-}"
+	        echo "%{A1:herbstclient use ${i:1}:} ${i:1} %{A -u -o F- B-}"
             done
 
 	    echo "%{F-}%{B-}"
