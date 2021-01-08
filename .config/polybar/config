@@ -10,25 +10,21 @@ include-file = $HOME/.config/polybar/modules.conf
 ;    Herbstluft WM Bars
 ;===================================================== 
 
-; Primary monitor bar
 [bar/hlwm-main-bar]
 inherit = bar/master
 
 ; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
 ; primary monitor '$(xrandr -q | grep " connected primary" | cut -d ' ' -f1)'
-monitor = DP1
+;monitor = DP1
+monitor = ${env:MONITOR}
+
+; Tell the Window Manager not to configure the window.
+; Use this to detach the bar if your WM is locking its size/position.
+override-redirect = true
 
 ; load system tray settings
 include-file = $HOME/.config/polybar/system-tray.conf
 
 modules-left = hlwm-workspaces 
 modules-right = clock pulseaudio logout
-
-; Secondary monitor(s) bar
-[bar/hlwm-secondary-bar]
-inherit = bar/master
-
-monitor = HDMI2
-
-modules-left = hlwm-workspaces
 

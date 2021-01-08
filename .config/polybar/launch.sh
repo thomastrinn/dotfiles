@@ -6,8 +6,12 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-# Launch Polybar, using default config location ~/.config/polybar/config
-polybar hlwm-main-bar &
-polybar hlwm-secondary-bar &
+if type "xrandr"; then
+    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+        MONITOR=$m polybar --reload hlwm-main-bar &
+    done
+else
+  polybar --reload hlwm-main-bar &
+fi
 
 echo "Polybar launched..."
