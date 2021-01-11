@@ -19,6 +19,9 @@ for id in `/usr/bin/xinput list | /bin/grep 'Mouse' | /bin/grep -o '[0-9][0-9]'`
     xinput set-button-map $id 3 2 1;
 done;
 
+# numlock on
+numlockx on
+
 # autostart applications
 lxsession &
 nm-applet &
@@ -185,6 +188,7 @@ hc rule instance='gnome-screenshot' floating=on
 hc rule instance='pamac-manager' floating=on
 hc rule instance='lxpolkit' floating=on
 hc rule instance='slack' floating=on
+hc rule instance='pavucontrol' floating=on
 
 hc set tree_style '╾│ ├└╼─┐'
 
