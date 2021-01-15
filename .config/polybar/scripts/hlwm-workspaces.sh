@@ -12,38 +12,31 @@ herbstclient --idle "tag_*" 2>/dev/null | {
             # Read the prefix from each tag and render them according to that prefix
                 case ${i:0:1} in
                     '#')
-			# the tag is viewed on the focused monitor
-			# TODO Add your formatting tags for focused workspaces
-			echo "%{R}"
-	                ;;
-		    '+')
-			# the tag is viewed on the specified MONITOR, but this monitor is not focused.
-			# TODO Add your formatting tags for viewed but not focused workspaces
-			echo "%{R}"
-			;;
-		    '%')
-			# the tag is viewed on a different MONITOR and it is focused.
-			# TODO Add your formatting tags for viewed, focused tag but not selected monitor
-                        echo "%{B#3A475F}"
-			;;
+			            # # the tag is viewed on the specified MONITOR and it is focused.
+			            echo "%{B#BAE67E}%{F#202734}"
+	                    ;;
+		            '+')
+            			# + the tag is viewed on the specified MONITOR, but this monitor is not focused.
+			            echo "%{B#BAE67E}%{F#202734}"
+            			;;
+                    '-')
+		                # - the tag is viewed on a different MONITOR, but this monitor is not focused.
+		                echo "%{B#5CCFE6}%{F#202734}"
+		                ;;
+		            '%')
+			            # % the tag is viewed on a different MONITOR and it is focused.
+                        echo "%{B#5CCFE6}%{F#202734}"
+			            ;;
                     ':')
                         # : the tag is not empty
-                        # TODO Add your formatting tags for occupied workspaces
-			echo "%{B#3A475F}"
-			;;
+			            echo "%{B#3A475F}"
+			            ;;
                     '!')
                         # ! the tag contains an urgent window
-                        # TODO Add your formatting tags for workspaces with the urgent hint
-			echo "%{F#202734}%{B#FFA759}"
+			            echo "%{B#FFA759}%{F#202734}"
                         ;;
-                    '-')
-                        # - the tag is viewed on a monitor that is not focused
-                        # TODO Add your formatting tags for visible but not focused workspaces
-			echo "%{B#3A475F}"
-			;;
                     *)
                         # . the tag is empty
-                        # There are also other possible prefixes but they won't appear here
                         echo "%{F-}%{B-}" # Add your formatting tags for empty workspaces
                         ;;
                 esac
