@@ -38,7 +38,8 @@ myTerminal=alacritty
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
-hc keybind $Mod-Shift-c close
+#hc keybind $Mod-Shift-c close
+hc keybind $Mod-Shift-c close_and_remove # Closes the focused window and removes the current frame if no other window is present in that frame. In floating mode, this acts as the close command.
 
 hc keybind $Mod-Return spawn "${myTerminal}" # start terminal
 hc keybind $Mod-b spawn brave --profile-directory=Default # start browser
