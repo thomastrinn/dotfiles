@@ -9,6 +9,8 @@ Plug 'ap/vim-css-color'			    " Color previews for CSS (https://github.com/ap/vi
 
 Plug 'ayu-theme/ayu-vim'            " ayu color
 
+Plug 'preservim/nerdtree'           " NERDTree: file system explorer (https://github.com/preservim/nerdtree)
+
 call plug#end()
 
 filetype plugin indent on
@@ -23,6 +25,12 @@ filetype plugin indent on
 
 set number                          " Show line numbers
 syntax on                           " Enable syntax highlighting
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree Settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <C-f> :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " lightline config

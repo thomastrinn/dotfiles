@@ -12,7 +12,8 @@ hc emit_hook reload
 xrandr --output HDMI2 --left-of DP1
 
 # set background color
-xsetroot -solid '#202734'
+# xsetroot -solid '#202734' # use hsetroot instead (issue: https://github.com/chjj/compton/issues/162)
+hsetroot -solid '#202734'
 
 # set left-handed mouse
 for id in `/usr/bin/xinput list | /bin/grep 'Mouse' | /bin/grep -o '[0-9][0-9]'`; do
@@ -25,13 +26,12 @@ numlockx on
 # autostart applications
 lxsession &
 nm-applet &
+picom &
 
 # remove all existing keybindings
 hc keyunbind --all
 
 # keybindings
-# if you have a super key you will be much happier with Mod set to Mod4
-#Mod=Mod1    # Use alt as the main modifier
 Mod=Mod4   # Use the super key as the main modifier
 
 myTerminal=alacritty
@@ -41,20 +41,30 @@ hc keybind $Mod-Shift-r reload
 #hc keybind $Mod-Shift-c close
 hc keybind $Mod-Shift-c close_and_remove # Closes the focused window and removes the current frame if no other window is present in that frame. In floating mode, this acts as the close command.
 
-hc keybind $Mod-Return spawn "${myTerminal}" # start terminal
-hc keybind $Mod-b spawn brave --profile-directory=Default # start browser
-hc keybind $Mod-Shift-Return spawn rofi -modi 'window,run,ssh,drun' -show-icons -show drun # rofi launcher
+# launch apps
+hc keybind $Mod-Return          spawn "${myTerminal}"                       # start terminal
+hc keybind $Mod-Shift-Return    spawn $HOME/.bin/app-launcher.sh            # start app launcher
+
+hc keybind $Mod-Mod1-b          spawn brave --profile-directory=Default     # start browser
+hc keybind $Mod-Mod1-w          spawn brave --profile-directory='Profile 1' # start work browser
+hc keybind $Mod-Mod1-s          spawn slack                                 # start slack
+hc keybind $Mod-Mod1-v          spawn virt-manager                          # start virt-manager
+hc keybind Print                spawn gnome-screenshot -i                   # start screenshot
+hc keybind $Mod-Mod1-t          spawn transmission-gtk                      # start torrent app
+hc keybind $Mod-Mod1-f          spawn nautilus                              # start file manager
+hc keybind $Mod-Mod1-u          spawn pamac-manager                         # start update/package manager
+hc keybind $Mod-Escape          spawn $HOME/.bin/power.sh                   # start power off launcher
 
 # Audio cntrol
 hc keybind XF86AudioRaiseVolume spawn pulseaudio-ctl up
 hc keybind XF86AudioLowerVolume spawn pulseaudio-ctl down
-hc keybind XF86AudioMute spawn pulseaudio-ctl mute
+hc keybind XF86AudioMute        spawn pulseaudio-ctl mute
 
 # Media control
-hc keybind XF86AudioPlay spawn playerctl play-pause
-hc keybind XF86AudioNext spawn playerctl next
-hc keybind XF86AudioPrev spawn playerctl previous
-hc keybind XF86AudioStop spawn playerctl stop
+hc keybind XF86AudioPlay        spawn playerctl play-pause
+hc keybind XF86AudioNext        spawn playerctl next
+hc keybind XF86AudioPrev        spawn playerctl previous
+hc keybind XF86AudioStop        spawn playerctl stop
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -76,6 +86,8 @@ hc keybind $Mod-Shift-h     shift left
 hc keybind $Mod-Shift-j     shift down
 hc keybind $Mod-Shift-k     shift up
 hc keybind $Mod-Shift-l     shift right
+
+hc set default_frame_layout 1   # horizontal layut - clients are placed next to each other
 
 # splitting frames
 # create an empty frame at the specified direction
@@ -146,7 +158,7 @@ hc attr theme.floating.reset 1
 hc set frame_border_active_color '#CBCCC6'
 hc set frame_border_normal_color '#202734'
 hc set frame_bg_normal_color '#202734'
-hc set frame_bg_active_color '#CBCCC6'
+hc set frame_bg_active_color '#202734'
 hc set frame_border_width 1
 hc set always_show_frame on
 hc set frame_bg_transparent on
@@ -154,8 +166,8 @@ hc set frame_transparent_width 0
 hc set frame_gap 0
 
 hc attr theme.active.color '#CBCCC6'
-hc attr theme.normal.color '#202734'
-hc attr theme.urgent.color orange
+hc attr theme.normal.color '#707A8C'
+hc attr theme.urgent.color '#FFA759'
 hc attr theme.inner_width 0
 hc attr theme.inner_color black
 hc attr theme.border_width 1
@@ -164,7 +176,7 @@ hc attr theme.floating.outer_width 1
 hc attr theme.floating.outer_color black
 hc attr theme.active.inner_color '#CBCCC6'
 hc attr theme.active.outer_color '#CBCCC6'
-hc attr theme.background_color '#141414'
+hc attr theme.background_color '#202734'
 
 hc set window_gap 0
 hc set frame_padding 0
@@ -190,6 +202,7 @@ hc rule instance='pamac-manager' floating=on
 hc rule instance='lxpolkit' floating=on
 hc rule instance='slack' floating=on
 hc rule instance='pavucontrol' floating=on
+hc rule instance='transmission-gtk' floating=on
 
 hc set tree_style '╾│ ├└╼─┐'
 
@@ -214,4 +227,4 @@ for monitor in $(hc list_monitors | cut -d: -f1) ; do
     hc pad $monitor $panel_height
 done
 ~/.config/polybar/launch.sh &
-
+ 
