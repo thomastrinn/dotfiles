@@ -47,10 +47,11 @@ hc keybind $Mod-Shift-Return    spawn $HOME/.bin/app-launcher.sh            # st
 
 hc keybind $Mod-Mod1-b          spawn brave --profile-directory=Default     # start browser
 hc keybind $Mod-Mod1-w          spawn brave --profile-directory='Profile 1' # start work browser
+hc keybind $Mod-Mod1-g          spawn brave --guest                         # start guest browser session
 hc keybind $Mod-Mod1-s          spawn slack                                 # start slack
 hc keybind $Mod-Mod1-v          spawn virt-manager                          # start virt-manager
 hc keybind Print                spawn gnome-screenshot -i                   # start screenshot
-hc keybind $Mod-Mod1-t          spawn transmission-gtk                      # start torrent app
+hc keybind $Mod-Mod1-t          spawn transmission-gtk -m                   # start torrent app
 hc keybind $Mod-Mod1-f          spawn nautilus                              # start file manager
 hc keybind $Mod-Mod1-u          spawn pamac-manager                         # start update/package manager
 hc keybind $Mod-Escape          spawn $HOME/.bin/power.sh                   # start power off launcher
