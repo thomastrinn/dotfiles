@@ -172,6 +172,9 @@ if [ -n "$DESKTOP_SESSION" ];then
 	export SSH_AUTH_SOCK
 fi
 
+# set default editor
+export EDITOR='vim'
+
 
 # Powerline-shell
 #function powerline_precmd() {
