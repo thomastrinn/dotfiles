@@ -26,5 +26,5 @@ override-redirect = true
 include-file = $HOME/.config/polybar/system-tray.conf
 
 modules-left = hlwm-workspaces 
-modules-right = clock pulseaudio logout
+modules-right = clock date pulseaudio logout
 
