@@ -3,8 +3,8 @@
 ;=====================================================
 
 [section/base]
-include-file = $HOME/.config/polybar/master.conf
-include-file = $HOME/.config/polybar/modules.conf
+include-file = $HOME/.config/polybar/master.ini
+include-file = $HOME/.config/polybar/modules.ini
 
 ;=====================================================
 ;    Herbstluft WM Bars
@@ -23,7 +23,7 @@ monitor = ${env:MONITOR}
 override-redirect = true
 
 ; load system tray settings
-include-file = $HOME/.config/polybar/system-tray.conf
+include-file = $HOME/.config/polybar/system-tray.ini
 
 modules-left = hlwm-workspaces 
 modules-right = clock date pulseaudio logout
