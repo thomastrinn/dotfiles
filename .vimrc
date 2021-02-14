@@ -7,7 +7,7 @@ Plug 'itchyny/lightline.vim'		" Lightline statusbar (https://github.com/itchyny/
 
 Plug 'ap/vim-css-color'			    " Color previews for CSS (https://github.com/ap/vim-css-color)
 
-Plug 'ayu-theme/ayu-vim'            " ayu color
+Plug 'arcticicestudio/nord-vim'     " nord color
 
 Plug 'preservim/nerdtree'           " NERDTree: file system explorer (https://github.com/preservim/nerdtree)
 
@@ -39,7 +39,7 @@ set laststatus=2			        " Always show statusline
 set noshowmode                      " prevent non-normal modes showing in lightline and below lightline.
 
 let g:lightline = {
-      \ 'colorscheme': 'ayu_mirage',
+      \ 'colorscheme': 'nord',
       \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -52,10 +52,8 @@ if exists('+termguicolors')
     set termguicolors
 endif
 
-"let ayucolor="light"               " for light version of theme
-let ayucolor="mirage"               " for mirage version of theme
-"let ayucolor="dark"                " for dark version of theme
-colorscheme ayu
+" set nord color theme
+colorscheme nord
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text, tab and indent related
@@ -73,7 +71,7 @@ set tabstop=4
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mouse Scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set mouse=nicr
+set mouse=a                         " enable mouse for all modes
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search

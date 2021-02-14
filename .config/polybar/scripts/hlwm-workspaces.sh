@@ -13,37 +13,27 @@ herbstclient --idle "tag_*" 2>/dev/null | {
                 case ${i:0:1} in
                     '#')
 			            # # the tag is viewed on the specified MONITOR and it is focused.
-			            #echo "%{B#BAE67E}%{F#202734}"
-                        echo "%{B#CBCCC6}%{F#202734}"
-                        #echo "%{B#202734}%{F#CBCCC6}"
+                        echo "%{B#D8DEE9}%{F#2E3440}"
 	                    ;;
 		            '+')
             			# + the tag is viewed on the specified MONITOR, but this monitor is not focused.
-			            #echo "%{B#BAE67E}%{F#202734}"
-                        echo "%{u#CBCCC6}%{+u}"
-                        #echo "%{u#202734}%{+u}"
+                        echo "%{u#D8DEE9}%{+u}"
             			;;
                     '-')
 		                # - the tag is viewed on a different MONITOR, but this monitor is not focused.
-		                #echo "%{B#5CCFE6}%{F#202734}"
-                        echo "%{u#CBCCC6}%{+u}"
-                        #echo "%{u#202734}%{+u}"
+                        echo "%{u#D8DEE9}%{+u}"
 		                ;;
 		            '%')
 			            # % the tag is viewed on a different MONITOR and it is focused.
-                        #echo "%{B#5CCFE6}%{F#202734}"
-                        echo "%{u#CBCCC6}%{+u}"
-                        #echo "%{u#202734}%{+u}"
+                        echo "%{u#D8DEE9}%{+u}"
 			            ;;
                     ':')
                         # : the tag is not empty
-			            #echo "%{B#3A475F}"
-                        echo "%{o#CBCCC6}%{+o}"
-                        #echo "%{o#202734}%{+o}"
+                        echo "%{o#D8DEE9}%{+o}"
 			            ;;
                     '!')
                         # ! the tag contains an urgent window
-			            echo "%{B#FFA759}%{F#202734}"
+			            echo "%{B#EBCB8B}%{F#2E3440}"
                         ;;
                     *)
                         # . the tag is empty
