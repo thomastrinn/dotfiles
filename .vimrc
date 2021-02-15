@@ -7,7 +7,9 @@ Plug 'itchyny/lightline.vim'		" Lightline statusbar (https://github.com/itchyny/
 
 Plug 'ap/vim-css-color'			    " Color previews for CSS (https://github.com/ap/vim-css-color)
 
-Plug 'arcticicestudio/nord-vim'     " nord color
+Plug 'arcticicestudio/nord-vim'     " Nord color schema
+
+Plug 'Yggdroot/indentLine'          " Show vertical lines at each indentation level
 
 Plug 'preservim/nerdtree'           " NERDTree: file system explorer (https://github.com/preservim/nerdtree)
 
@@ -32,8 +34,9 @@ syntax on                           " Enable syntax highlighting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <C-f> :NERDTreeToggle<CR>
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" lightline config
+" lightline Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set laststatus=2			        " Always show statusline
 set noshowmode                      " prevent non-normal modes showing in lightline and below lightline.
@@ -42,8 +45,14 @@ let g:lightline = {
       \ 'colorscheme': 'nord',
       \ }
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Colors
+" IndentLine Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:indentLine_char = '▏'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Color schema
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " enable true colors support
 if exists('+termguicolors')
@@ -54,6 +63,7 @@ endif
 
 " set nord color theme
 colorscheme nord
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text, tab and indent related
