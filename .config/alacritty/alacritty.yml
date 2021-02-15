@@ -61,42 +61,42 @@ schemes:
 
     # Normal colors
     normal:
-      black: '#191E2A'
-      red: '#FF3333'
-      green: '#BAE67E'
-      yellow: '#FFA759'
-      blue: '#73D0FF'
+      black:   '#191E2A'
+      red:     '#FF3333'
+      green:   '#BAE67E'
+      yellow:  '#FFA759'
+      blue:    '#73D0FF'
       magenta: '#FFD580'
-      cyan: '#95E6CB'
-      white: '#C7C7C7'
+      cyan:    '#95E6CB'
+      white:   '#C7C7C7'
 
     # Bright colors
     bright:
-      black: '#686868'
-      red: '#F27983'
-      green: '#A6CC70'
-      yellow: '#FFCC66'
-      blue: '#5CCFE6'
+      black:   '#686868'
+      red:     '#F27983'
+      green:   '#A6CC70'
+      yellow:  '#FFCC66'
+      blue:    '#5CCFE6'
       magenta: '#FFEE99'
-      cyan: '#95E6CB'
-      white: '#FFFFFF'
+      cyan:    '#95E6CB'
+      white:   '#FFFFFF'
  
   nord: &nord
     primary:
-      background: '#2E3440'
-      foreground: '#D8DEE9'
+      background:     '#2E3440'
+      foreground:     '#D8DEE9'
       dim_foreground: '#A5ABB6'
 
     cursor:
-      text: '#2E3440'
+      text:   '#2E3440'
       cursor: '#D8dEE9'
 
     vi_mode_cursor:
-      text: '#2E3440'
+      text:   '#2E3440'
       cursor: '#D8dEE9'
 
     selection:
-      text: CellForeground
+      text:       CellForeground
       background: '#4C566A'
 
     search:
