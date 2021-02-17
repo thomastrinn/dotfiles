@@ -2,6 +2,11 @@
 
 selected_monitor=$MONITOR
 
+foreground='#D8DEE9'
+background='#2E3440'
+highlight='#88C0D0'
+urgent='#EBCB8B'
+
 herbstclient --idle "tag_*" 2>/dev/null | {
 
     while true; do
@@ -13,27 +18,27 @@ herbstclient --idle "tag_*" 2>/dev/null | {
                 case ${i:0:1} in
                     '#')
 			            # # the tag is viewed on the specified MONITOR and it is focused.
-                        echo "%{B#D8DEE9}%{F#2E3440}"
+                        echo "%{B${highlight}}%{F${background}}"
 	                    ;;
 		            '+')
             			# + the tag is viewed on the specified MONITOR, but this monitor is not focused.
-                        echo "%{u#D8DEE9}%{+u}"
+                        echo "%{u${highlight}}%{+u}"
             			;;
                     '-')
 		                # - the tag is viewed on a different MONITOR, but this monitor is not focused.
-                        echo "%{u#D8DEE9}%{+u}"
+                        echo "%{u${highlight}}%{+u}"
 		                ;;
 		            '%')
 			            # % the tag is viewed on a different MONITOR and it is focused.
-                        echo "%{u#D8DEE9}%{+u}"
+                        echo "%{u${highlight}}%{+u}"
 			            ;;
                     ':')
                         # : the tag is not empty
-                        echo "%{o#D8DEE9}%{+o}"
+                        echo "%{o${highlight}}%{+o}"
 			            ;;
                     '!')
                         # ! the tag contains an urgent window
-			            echo "%{B#EBCB8B}%{F#2E3440}"
+			            echo "%{B${urgent}}%{F${background}}"
                         ;;
                     *)
                         # . the tag is empty
