@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ANS=$(echo "Lock|Logout|Reboot|Shutdown" | \
+ANS=$(echo "Shutdown|Reboot|Lock|Logout" | \
     rofi -sep "|" -dmenu -i -p 'System ' "" -width 20 \
     -hide-scrollbar -eh 1 -line-padding 4 -padding 5 -lines 4)
 case "$ANS" in
