@@ -55,6 +55,7 @@ hc keybind $Mod-Mod1-t          spawn transmission-gtk -m                   # st
 hc keybind $Mod-Mod1-f          spawn nautilus                              # start file manager
 hc keybind $Mod-Mod1-u          spawn pamac-manager                         # start update/package manager
 hc keybind $Mod-Escape          spawn $HOME/.bin/power.sh                   # start power off launcher
+hc keybind XF86Calculator       spawn $HOME/.bin/calc.sh                    # start calculator
 
 # Audio cntrol
 hc keybind XF86AudioRaiseVolume spawn pulseaudio-ctl up
