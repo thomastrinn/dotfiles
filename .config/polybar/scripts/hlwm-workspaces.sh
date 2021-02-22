@@ -2,6 +2,7 @@
 
 selected_monitor=$MONITOR
 
+panel_bg='#434C5E'
 foreground='#D8DEE9'
 background='#2E3440'
 highlight='#88C0D0'
@@ -14,7 +15,8 @@ herbstclient --idle "tag_*" 2>/dev/null | {
         IFS=$'\t' read -ra tags <<< "$(herbstclient tag_status $selected_monitor)"
         {
             for i in "${tags[@]}" ; do
-            # Read the prefix from each tag and render them according to that prefix
+                # Read the prefix from each tag and render them according to that prefix
+                echo "%{B${panel_bg}}"
                 case ${i:0:1} in
                     '#')
 			            # # the tag is viewed on the specified MONITOR and it is focused.
@@ -42,7 +44,7 @@ herbstclient --idle "tag_*" 2>/dev/null | {
                         ;;
                     *)
                         # . the tag is empty
-                        echo "%{F-}%{B-}" # Add your formatting tags for empty workspaces
+                        # echo "%{F-}%{B-}" # Add your formatting tags for empty workspaces
                         ;;
                 esac
 
