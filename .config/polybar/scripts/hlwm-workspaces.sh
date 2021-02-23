@@ -2,7 +2,7 @@
 
 selected_monitor=$MONITOR
 
-panel_bg='#434C5E'
+modul_bg='#3B4252'
 foreground='#D8DEE9'
 background='#2E3440'
 highlight='#88C0D0'
@@ -16,7 +16,7 @@ herbstclient --idle "tag_*" 2>/dev/null | {
         {
             for i in "${tags[@]}" ; do
                 # Read the prefix from each tag and render them according to that prefix
-                echo "%{B${panel_bg}}"
+                echo "%{B${modul_bg}}"
                 case ${i:0:1} in
                     '#')
 			            # # the tag is viewed on the specified MONITOR and it is focused.
