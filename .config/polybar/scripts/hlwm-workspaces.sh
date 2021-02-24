@@ -52,7 +52,7 @@ format_tag() {
             ;;
         '!')
             # ! the tag contains an urgent window
-			echo "%{B${urgent_tag_bg}}%{F${urgent_tag_fg}}"
+            echo "%{B${urgent_tag_bg}}%{F${urgent_tag_fg}}"
             ;;
         *)
             # . the tag is empty
