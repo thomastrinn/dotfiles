@@ -2,12 +2,27 @@
 
 selected_monitor=$MONITOR
 
-modul_bg='#3B4252'
-foreground='#D8DEE9'
-background='#2E3440'
-highlight='#88C0D0'
-urgent='#EBCB8B'
+###############################################################################
+# Colors
+###############################################################################
+default_bg='#434C5E'
+default_fg='#D8DEE9'
 
+selected_tag_bg='#88C0D0'
+selected_tag_fg='#2E3440'
+
+active_tag_bg='#4C566A'
+active_tag_fg='#D8DEE9'
+
+urgent_tag_bg='#EBCB8B'
+urgent_tag_fg='#2E3440'
+
+not_empthy_tag_bg='#4C566A'
+not_empthy_tag_fg='#D8DEE9'
+
+###############################################################################
+# format tags
+###############################################################################
 herbstclient --idle "tag_*" 2>/dev/null | {
 
     while true; do
@@ -16,31 +31,31 @@ herbstclient --idle "tag_*" 2>/dev/null | {
         {
             for i in "${tags[@]}" ; do
                 # Read the prefix from each tag and render them according to that prefix
-                echo "%{B${modul_bg}}"
+                echo "%{B${default_bg}}%{F${default_fg}}"
                 case ${i:0:1} in
                     '#')
 			            # # the tag is viewed on the specified MONITOR and it is focused.
-                        echo "%{B${highlight}}%{F${background}}"
+                        echo "%{B${selected_tag_bg}}%{F${selected_tag_fg}}"
 	                    ;;
 		            '+')
             			# + the tag is viewed on the specified MONITOR, but this monitor is not focused.
-                        echo "%{u${highlight}}%{+u}"
+                        echo "%{B${selected_tag_bg}}%{F${selected_tag_fg}}"
             			;;
                     '-')
 		                # - the tag is viewed on a different MONITOR, but this monitor is not focused.
-                        echo "%{u${highlight}}%{+u}"
+                        echo "%{B${active_tag_bg}}%{F${active_tag_fg}}"
 		                ;;
 		            '%')
 			            # % the tag is viewed on a different MONITOR and it is focused.
-                        echo "%{u${highlight}}%{+u}"
+                        echo "%{B${active_tag_bg}}%{F${active_tag_fg}}"
 			            ;;
                     ':')
                         # : the tag is not empty
-                        echo "%{o${highlight}}%{+o}"
+                        echo "%{B${not_empthy_tag_bg}}%{F${not_empthy_tag_fg}}"
 			            ;;
                     '!')
                         # ! the tag contains an urgent window
-			            echo "%{B${urgent}}%{F${background}}"
+			            echo "%{B${urgent_tag_bg}}%{F${urgent_tag_fg}}"
                         ;;
                     *)
                         # . the tag is empty
