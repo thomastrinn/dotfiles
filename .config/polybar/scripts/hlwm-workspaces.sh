@@ -31,7 +31,7 @@ format_tag() {
     echo "%{B${default_bg}}%{F${default_fg}}"
     case ${tag_status} in
         '#')
-			# # the tag is viewed on the specified MONITOR and it is focused.
+            # # the tag is viewed on the specified MONITOR and it is focused.
             echo "%{B${selected_tag_bg}}%{F${selected_tag_fg}}"
 	        ;;
 		'+')
@@ -39,11 +39,11 @@ format_tag() {
             echo "%{B${selected_tag_bg}}%{F${selected_tag_fg}}"
             ;;
         '-')
-		    # - the tag is viewed on a different MONITOR, but this monitor is not focused.
+            # - the tag is viewed on a different MONITOR, but this monitor is not focused.
             echo "%{B${active_tag_bg}}%{F${active_tag_fg}}"
 		    ;;
 		'%')
-			# % the tag is viewed on a different MONITOR and it is focused.
+            # % the tag is viewed on a different MONITOR and it is focused.
             echo "%{B${active_tag_bg}}%{F${active_tag_fg}}"
 			;;
         ':')
