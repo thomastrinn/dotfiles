@@ -33,23 +33,23 @@ format_tag() {
         '#')
             # # the tag is viewed on the specified MONITOR and it is focused.
             echo "%{B${selected_tag_bg}}%{F${selected_tag_fg}}"
-	        ;;
-		'+')
+            ;;
+        '+')
             # + the tag is viewed on the specified MONITOR, but this monitor is not focused.
             echo "%{B${selected_tag_bg}}%{F${selected_tag_fg}}"
             ;;
         '-')
             # - the tag is viewed on a different MONITOR, but this monitor is not focused.
             echo "%{B${active_tag_bg}}%{F${active_tag_fg}}"
-		    ;;
-		'%')
+            ;;
+        '%')
             # % the tag is viewed on a different MONITOR and it is focused.
             echo "%{B${active_tag_bg}}%{F${active_tag_fg}}"
-			;;
+            ;;
         ':')
             # : the tag is not empty
             echo "%{B${not_empthy_tag_bg}}%{F${not_empthy_tag_fg}}"
-			;;
+            ;;
         '!')
             # ! the tag contains an urgent window
 			echo "%{B${urgent_tag_bg}}%{F${urgent_tag_fg}}"
