@@ -73,13 +73,13 @@ herbstclient --idle "tag_*" 2>/dev/null | {
                 # Read the prefix from each tag and render them according to that prefix
                 format_tag ${i:0:1} ${i:1}
             done
-
+            
 	        echo "%{F-}%{B-}" # reset format
         } | tr -d "\n"
-
-    echo
-
-    # wait for next event from herbstclient --idle
-    read -r || break
-done
+        
+        echo
+        
+        # wait for next event from herbstclient --idle
+        read -r || break
+    done
 } 2>/dev/null
