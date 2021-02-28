@@ -26,5 +26,5 @@ monitor = ${env:MONITOR}
 include-file = $HOME/.config/polybar/system-tray.ini
 
 modules-left = hlwm-workspaces
-modules-center = clock 
-modules-right = volume date
+modules-center = clock date 
+modules-right = volume
