@@ -8,7 +8,7 @@ selected_monitor=$MONITOR
 default_bg='#434C5E'
 default_fg='#D8DEE9'
 
-selected_tag_bg='#88C0D0'
+selected_tag_bg='#81A1C1'
 selected_tag_fg='#2E3440'
 
 active_tag_bg='#4C566A'
