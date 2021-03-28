@@ -1,0 +1,130 @@
+/**
+ * Window switcher theme
+ *
+ * Nord Color palette: https://www.nordtheme.com/
+ */
+configuration {
+    font:               "SauceCodePro Nerd Font 11";
+
+    display-window:     "";
+    display-windowcd:   "";
+
+    show-icons:         true;
+    icon-theme:         "Papirus";
+    //window-thumbnail: true;
+
+    window-format:      "{w}: {t}";
+
+    fullscreen:         false;
+    hide-scrollbar:     true;
+    sidebar-mode:       false;
+}
+
+* {
+    // define colors:
+    bg:                 #3B4252;    // nord1
+    fg:                 #ECEFF4;    // nord6
+
+    urgent-bg:          #D08770;    // nord12
+    urgent-fg:          @bg;
+
+    selected-bg:        #4C566A;    // nord3
+    selected-fg:        @fg;
+    
+    // base theme:
+    background-color:   @bg;
+    text-color:         @fg;
+
+    margin:             0px;
+
+    border:             0px;
+    border-radius:      0px;
+
+    padding:            0px;
+
+}
+
+window {
+    location:           south;
+
+    orientation:        horizontal;
+
+    width:              100%;
+
+    border-radius:      12px 12px 0px 0px;
+
+    children:           [ mainbox ];
+}
+
+mainbox {
+    spacing:            0px;
+
+    children:           [ inputbar, listview ];
+}
+
+inputbar {
+    padding:            1.5%;
+    children:           [ prompt, entry ];
+}
+
+prompt {
+    expand:             false;
+    padding:            0% 1% 0% 45%;
+}
+
+entry {
+    expand:             true;
+    blink:              true;
+
+    padding:            0% 0% 0% 0%;
+
+    placeholder:        "Search";
+
+    horizontal-align:   0;
+}
+
+listview {
+    layout:             horizontal;
+    columns:            1;
+    lines:              5;
+
+    cycle:              true;
+    dynamic:            true;
+
+    spacing:            0px;
+
+    padding:            11px 11px 11px 11px;
+}
+
+element {
+    orientation:        vertical;
+
+    spacing:            1%;
+
+    border:             0px;
+    border-radius:      6px;
+
+    padding:            5% 0.5% 5% 0.5%;
+}
+
+element-icon {
+    size:               64px;
+    vertical-align:     0.5;
+}
+
+element-text {
+    vertical-align:     0.5;
+    horizontal-align:   0.5;
+
+    width:              18.854%;
+}
+
+element urgent {
+    background-color:   @urgent-bg;
+    text-color:         @urgent-fg;
+}
+
+element selected {
+    background-color:   @selected-bg;
+    text-color:         @selected-fg;
+}

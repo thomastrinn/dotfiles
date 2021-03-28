@@ -1,0 +1,72 @@
+/*
+ * Power menu theme
+ *
+ */
+configuration {
+    font:                   "Hurmit Nerd Font Mono 60";
+
+    show-icons:             false;
+
+    disable-history:        true;
+
+    fullscreen:             false;
+    hide-scrollbar:         true;
+    sidebar-mode:           false;
+}
+
+* {
+    // define colors:
+    bg:                     #3B4252;    // nord1
+    fg:                     #ECEFF4;    // nord6
+
+    selected-bg:            #4C566A;    // nord3
+    selected-fg:            @fg;
+
+    // base theme:
+    background-color:       @bg;
+    text-color:             @fg;
+
+    margin:                 0px;
+
+    border:                 0px;
+    border-radius:          0px;
+
+    padding:                0px;
+}
+
+window {
+    location:               center;
+    orientation:            horizontal;
+
+    width:                  940px;
+    
+    padding:                15px;
+    
+    border-radius:          12px;
+
+    children:               [ mainbox ];
+}
+
+mainbox {
+    children:               [ listview ];
+}
+
+listview {
+    layout:                 horizontal;
+    lines:                  5;
+
+    dynamic:                false;
+
+    spacing:                15px;
+}
+
+element {
+    padding:                40px 60px 40px 60px;
+
+    border-radius:          12px;
+}
+
+element selected {
+    background-color:       @selected-bg;
+    text-color:             @selected-fg;
+}

@@ -1,0 +1,121 @@
+/**
+ * App laucher theme
+ *
+ * Nord Color palette: https://www.nordtheme.com/
+ */
+configuration {
+    font:                   "SauceCodePro Nerd Font 13";
+    
+    display-drun:           "";
+    drun-display-format:    "{name}";
+
+    show-icons:             true;
+    icon-theme:             "Papirus";
+    
+    disable-history:        false;
+
+    fullscreen:             false;
+    hide-scrollbar:         true;
+    sidebar-mode:           false;
+}
+
+* {
+    // define colors:
+    bg:                     #3B4252;    // nord1
+    fg:                     #ECEFF4;    // nord6
+
+    input-bg:               #81A1C1;    // nord8
+    input-fg:               @bg;
+
+    selected-bg:            #4C566A;    // nord3
+    selected-fg:            @fg;
+
+    // base theme:
+    background-color:       @bg;
+    text-color:             @fg;
+
+    margin:                 0px;
+
+    border:                 0px;
+    border-radius:          0px;
+
+    padding:                0px;
+}
+
+window {
+    location:               center;
+    orientation:            horizontal;
+    width:                  20%;
+
+    border-radius:          12px;
+
+    children:               [ mainbox ];
+}
+
+mainbox {
+    spacing:                0%;
+
+    children:               [ inputbar, listview ];
+}
+
+inputbar {
+    expand:                 false;
+
+    padding:                1.0%;
+
+    background-color:       @input-bg;
+    text-color:             @input-fg;
+
+    children:               [ prompt, entry];
+}
+
+prompt {
+    expand:                 false;
+
+    padding:                0% 1% 0% -0.2%;
+
+    background-color:       inherit;
+    text-color:             inherit;
+}
+
+entry {
+    expand:                 true;
+    blink:                  true;
+
+    placeholder:            "Search";
+
+    horizontal-align:       0;
+
+    background-color:       inherit;
+    text-color:             inherit;
+}
+
+listview {
+    layout:                 vertical;
+    columns:                1;
+    lines:                  5;
+
+    cycle:                  false;
+    dynamic:                true;
+
+    spacing:                0%;
+}
+
+element {
+    orientation:            horizontal;
+
+    padding:                1% 0.5% 1% 0.5%;
+}
+
+element-icon {
+    size:                   32px;
+}
+
+element-text {
+    vertical-align:         0.5;
+}
+
+element selected {
+    background-color:       @selected-bg;
+    text-color:             @selected-fg;
+}
