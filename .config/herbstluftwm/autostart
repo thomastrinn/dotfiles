@@ -36,14 +36,16 @@ Mod=Mod4   # Use the super key as the main modifier
 
 myTerminal=alacritty
 
-hc keybind $Mod-Shift-q quit
-hc keybind $Mod-Shift-r reload
-#hc keybind $Mod-Shift-c close
-hc keybind $Mod-Shift-c close_and_remove # Closes the focused window and removes the current frame if no other window is present in that frame. In floating mode, this acts as the close command.
+hc keybind $Mod-Shift-q quit                # Quits herbstluftwm
+hc keybind $Mod-Shift-r reload              # Executes the autostart file
+#hc keybind $Mod-Shift-c close              # Closes the specified window gracefully or the focused window if none is given explicitly.
+hc keybind $Mod-Shift-c close_or_remove     # Closes the focused window or removes the current frame if no window is focused. In floating mode, this acts as the close command.
+#hc keybind $Mod-Shift-c close_and_remove   # Closes the focused window and removes the current frame if no other window is present in that frame. In floating mode, this acts as the close command.
 
 # launch apps
 hc keybind $Mod-Return          spawn "${myTerminal}"                       # start terminal
-hc keybind $Mod-Shift-Return    spawn $HOME/.bin/app-launcher.sh            # start app launcher
+hc keybind $Mod-Shift-Return    spawn applauncher                           # start app launcher
+hc keybind Mod1-Tab             spawn windowswitcher                        # switch windows
 
 hc keybind $Mod-Mod1-b          spawn brave --profile-directory=Default     # start browser
 hc keybind $Mod-Mod1-w          spawn brave --profile-directory='Profile 1' # start work browser
@@ -54,8 +56,8 @@ hc keybind Print                spawn gnome-screenshot -i                   # st
 hc keybind $Mod-Mod1-t          spawn transmission-gtk -m                   # start torrent app
 hc keybind $Mod-Mod1-f          spawn nautilus                              # start file manager
 hc keybind $Mod-Mod1-u          spawn pamac-manager                         # start update/package manager
-hc keybind $Mod-Escape          spawn $HOME/.bin/power.sh                   # start power off launcher
-hc keybind XF86Calculator       spawn $HOME/.bin/calc.sh                    # start calculator
+hc keybind $Mod-Escape          spawn powermenu                             # open power menu
+hc keybind XF86Calculator       spawn calclauncher                          # start calculator
 
 # Audio cntrol
 hc keybind XF86AudioRaiseVolume spawn pulseaudio-ctl up
@@ -63,10 +65,10 @@ hc keybind XF86AudioLowerVolume spawn pulseaudio-ctl down
 hc keybind XF86AudioMute        spawn pulseaudio-ctl mute
 
 # Media control
-hc keybind XF86AudioPlay        spawn playerctl play-pause
-hc keybind XF86AudioNext        spawn playerctl next
-hc keybind XF86AudioPrev        spawn playerctl previous
-hc keybind XF86AudioStop        spawn playerctl stop
+hc keybind XF86AudioPlay        spawn playerctl --all-players play-pause
+hc keybind XF86AudioNext        spawn playerctl --all-players next
+hc keybind XF86AudioPrev        spawn playerctl --all-players previous
+hc keybind XF86AudioStop        spawn playerctl --all-players stop
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -89,12 +91,14 @@ hc keybind $Mod-Shift-j     shift down
 hc keybind $Mod-Shift-k     shift up
 hc keybind $Mod-Shift-l     shift right
 
-hc set default_frame_layout 1   # horizontal layut - clients are placed next to each other
+hc set default_frame_layout 3   # grid - clients are arranged in an almost quadratic grid
 
 # splitting frames
 # create an empty frame at the specified direction
-hc keybind $Mod-u       split   bottom  0.5
-hc keybind $Mod-o       split   right   0.5
+#hc keybind $Mod-u       split   bottom  0.5
+#hc keybind $Mod-o       split   right   0.5
+hc keybind $Mod-u       and , split bottom 0.5 , focus down
+hc keybind $Mod-o       and , split right  0.5 , focus right
 # let the current frame explode into subframes
 hc keybind $Mod-Control-space split explode
 
@@ -174,7 +178,7 @@ hc attr theme.inner_width 0
 hc attr theme.inner_color black
 hc attr theme.border_width 1
 hc attr theme.floating.border_width 1
-hc attr theme.floating.outer_width 1
+hc attr theme.floating.outer_width 0
 hc attr theme.floating.outer_color black
 hc attr theme.active.inner_color '#D8DEE9'
 hc attr theme.active.outer_color '#D8DEE9'
@@ -185,6 +189,9 @@ hc set frame_padding 0
 hc set smart_window_surroundings off
 hc set smart_frame_surroundings on
 hc set mouse_recenter_gap 0
+hc set update_dragged_clients 1
+hc set focus_follows_mouse true
+hc set raise_on_focus true
 
 # rules
 hc unrule -F
@@ -199,12 +206,13 @@ hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 
 # rule for apps
-hc rule instance='gnome-screenshot' floating=on
-hc rule instance='pamac-manager' floating=on
-hc rule instance='lxpolkit' floating=on
-hc rule instance='slack' floating=on
-hc rule instance='pavucontrol' floating=on
-hc rule instance='transmission-gtk' floating=on
+hc rule instance='gnome-screenshot'     floating=on
+hc rule instance='pamac-manager'        floating=on
+hc rule instance='lxpolkit'             floating=on
+hc rule instance='slack'                floating=on
+hc rule instance='pavucontrol'          floating=on
+hc rule instance='transmission-gtk'     floating=on
+hc rule instance='vlc'                  floating=on
 
 hc set tree_style '╾│ ├└╼─┐'
 
