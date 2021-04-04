@@ -1,0 +1,90 @@
+<eww>
+    <definitions>
+        <def name="side-panel">
+            <box orientation="v" space-evenly="false" spacing="20" valign="start" class="panel">
+                <date-time/>
+                <weather/>
+                <media/>
+            </box>
+        </def>
+
+        <def name="date-time">
+            <box orientation="v" space-evenly="false" class="date-time">
+                <box class="time">{{time}}</box>
+                <box class="date">{{date}}</box>
+            </box>
+        </def>
+
+        <def name="weather">
+            <box class="weather">
+                <box orientation="h" space-evenly="false" spacing="0" halign="center">
+                    <box class="weather-condition-icon">{{weather_condition_icon}}</box>
+                    <box orientation="v" space-evenly="false" spacing="10" valign="start" class="weather-condition">
+                        <box halign="start" class="weather-condition-text">{{weather_condition_text}}</box>
+                        <box halign="start" class="weather-temperature">{{weather_temperature}} ({{weather_temperature_feels_like}})</box>
+                        <box orientation="h" space-evenly="false" spacing="20" halign="start">
+                            <box halign="start" class="weather-precipitation"> {{weather_precipitation}}</box>
+                            <box halign="start" class="weather-wind">煮 {{weather_wind}}</box>
+                        </box>
+                    </box>
+                </box>
+            </box>
+        </def>
+
+        <def name="media">
+            <box orientation="v" space-evenly="false" spacing="20" class="media">
+                <label text="" class="media-icon"/>
+                <label text="{{mpris}}" limit-width="30"/>
+                <box orientation="h" halign="center" spacing="15" class="media-buttons">
+                    <button width="40" onclick="playerctl --all-players previous">ﭢ</button>
+                    <button width="40" onclick="playerctl --all-players play-pause">{{if player_status != 'playing' then '' else ''}}</button>
+                    <button width="40" onclick="playerctl --all-players next">ﭠ</button>
+                </box>
+            </box>
+        </def>
+    </definitions>
+
+    <variables>
+        <!-- date & time-->
+        <script-var name="time" interval="1s">date +%H:%M</script-var>
+        <script-var name="date" interval="1s">date "+%A, %b %d"</script-var>
+
+        <!-- weather -->
+        <script-var name="weather_condition_icon" interval="10m">
+            curl -s "wttr.in/?format=%c\n"
+        </script-var>
+        <script-var name="weather_condition_text" interval="10m">
+            curl -s "wttr.in/?format=%C\n"
+        </script-var>
+        <script-var name="weather_temperature" interval="10m">
+            curl -s "wttr.in/?format=%t\n"
+        </script-var>
+        <script-var name="weather_temperature_feels_like" interval="10m">
+            curl -s "wttr.in/?format=%f\n"
+        </script-var>
+        <script-var name="weather_precipitation" interval="10m">
+            curl -s "wttr.in/?format=%p\n"
+        </script-var>
+        <script-var name="weather_wind" interval="10m">
+            curl -s "wttr.in/?format=%w\n"
+        </script-var>
+
+        <!-- mpris -->
+        <script-var name="mpris" interval="1s">
+            playerctl metadata --format "{{title}}"
+        </script-var>
+        <script-var name="player_status" interval="200ms">
+            playerctl metadata --format "{{lc(status)}}"
+        </script-var>
+    </variables>
+
+    <windows>
+        <window name="side-panel" stacking="fg" focusable="false" screen="0">
+            <geometry x="1560px" y="32px" width="360px" height="100%"/>
+            <reserve side="right" distance="360px"/>
+            <widget>
+                <side-panel/>
+            </widget>
+        </window>
+    </windows>
+</eww>

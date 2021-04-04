@@ -1,0 +1,79 @@
+* {
+    all: unset; //Unsets everything so you can style everything from scratch
+}
+
+window {
+    color:              #ECEFF4;    // nord6
+    font-family:        "SauceCodePro Nerd Font";
+
+    background-color:   #3B4252;    // nord1
+}
+
+.panel {
+    padding:            20px;
+}
+
+.date-time {
+    background-color:   #4C566A;    // nord3
+
+    border-radius:      12px;
+
+    padding:            15px;
+}
+
+.time {
+    font-size:          64px;
+}
+
+.date {
+    font-size:          20px;
+}
+
+.weather {
+    background-color:   #4C566A;    // nord3
+
+    border-radius:      12px;
+
+    padding:            15px;
+}
+
+.weather-condition-icon {
+    margin-left:        0px;
+    font-size:          44px;
+}
+
+.weather-condition {
+    margin-left:        -20px;
+}
+
+.weather-condition-text {
+    font-size:          22px;
+}
+
+.weather-temperature {
+    font-size:          22px;
+}
+
+.weather-precipitation {
+    font-size:          18px;
+}
+
+.weather-wind {
+    font-size:          18px;
+}
+
+.media {
+    background-color:   #4C566A;    // nord3
+
+    border-radius:      12px;
+
+    padding:            15px;
+}
+
+.media-icon {
+    font-size:          44px;
+}
+
+.media-buttons {
+    font-size:          32px;
+}
