@@ -9,6 +9,6 @@
 mkdir ~/.local/bin
 
 # Create the symlinks, example:
-ls -s ~/.config/rofi/scripts/applauncher.sh ~/.local/bin/applauncher
+ln -s ~/.config/rofi/scripts/applauncher.sh ~/.local/bin/applauncher
 
 ```
