@@ -27,6 +27,7 @@ numlockx on
 lxsession &
 nm-applet &
 picom &
+eww daemon &
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -58,6 +59,7 @@ hc keybind $Mod-Mod1-f          spawn nautilus                              # st
 hc keybind $Mod-Mod1-u          spawn pamac-manager                         # start update/package manager
 hc keybind $Mod-Escape          spawn powermenu                             # open power menu
 hc keybind XF86Calculator       spawn calclauncher                          # start calculator
+hc keybind $Mod-Mod1-space      spawn side_panel_toggle                     # toggles eww side panel
 
 # Audio cntrol
 hc keybind XF86AudioRaiseVolume spawn pulseaudio-ctl up
