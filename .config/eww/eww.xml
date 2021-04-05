@@ -1,7 +1,8 @@
 <eww>
     <definitions>
+        <!-- side panel -->
         <def name="side-panel">
-            <box orientation="v" space-evenly="false" spacing="20" valign="start" class="panel">
+            <box orientation="v" space-evenly="false" spacing="20" valign="start" class="side-panel">
                 <date-time/>
                 <weather/>
                 <media/>
@@ -17,7 +18,7 @@
 
         <def name="weather">
             <box class="weather">
-                <box orientation="h" space-evenly="false" spacing="0" halign="center">
+                <box orientation="h" space-evenly="false" spacing="10" halign="center">
                     <box class="weather-condition-icon">{{weather_condition_icon}}</box>
                     <box orientation="v" space-evenly="false" spacing="10" valign="start" class="weather-condition">
                         <box halign="start" class="weather-condition-text">{{weather_condition_text}}</box>
@@ -40,6 +41,13 @@
                     <button width="40" onclick="playerctl --all-players play-pause">{{if player_status != 'playing' then '' else ''}}</button>
                     <button width="40" onclick="playerctl --all-players next">ﭠ</button>
                 </box>
+            </box>
+        </def>
+
+        <!-- calendar -->
+        <def name="calendar-widget">
+            <box class="calendar-widget">
+                <calendar/>
             </box>
         </def>
     </definitions>
@@ -81,9 +89,15 @@
     <windows>
         <window name="side-panel" stacking="fg" focusable="false" screen="0">
             <geometry x="1560px" y="32px" width="360px" height="100%"/>
-            <reserve side="right" distance="360px"/>
             <widget>
                 <side-panel/>
+            </widget>
+        </window>
+
+        <window name="calendar" stacking="fg" focusable="false">
+            <geometry anchor="top center" y="42" width="400"/>
+            <widget>
+                <calendar-widget/>
             </widget>
         </window>
     </windows>

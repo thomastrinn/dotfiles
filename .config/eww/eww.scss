@@ -1,5 +1,5 @@
 * {
-    all: unset; //Unsets everything so you can style everything from scratch
+    all: unset;
 }
 
 window {
@@ -7,9 +7,16 @@ window {
     font-family:        "SauceCodePro Nerd Font";
 
     background-color:   #3B4252;    // nord1
+
+    border-radius:      60px;
 }
 
-.panel {
+// side-panel
+.side-panel {
+    background-color:   #3B4252;    // nord1
+
+    border-radius:      0px;
+
     padding:            20px;
 }
 
@@ -43,7 +50,7 @@ window {
 }
 
 .weather-condition {
-    margin-left:        -20px;
+    margin-left:        0px;
 }
 
 .weather-condition-text {
@@ -76,4 +83,23 @@ window {
 
 .media-buttons {
     font-size:          32px;
+}
+
+// calendar
+.calendar-widget {
+    background-color:   #3B4252;    // nord1
+
+    border-radius:      12px;
+
+    padding:            20px;
+}
+
+calendar {
+
+}
+
+calendar:selected {
+    background-color:   #4C566A;    // nord3
+
+    border-radius:      6px;
 }
