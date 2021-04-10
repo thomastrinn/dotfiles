@@ -26,7 +26,7 @@ tag_label='icon'
 tag_icon_default=''
 tag_icon_active=''
 tag_icon_urgent=''
-tag_icon_occupied=''
+tag_icon_occupied=''
 
 default_bg='#3B4252'
 default_fg='#81A1C1'
@@ -94,13 +94,13 @@ format_tag() {
       echo " $tag_icon_active "
       ;;
     '-' | '%')
-      echo " $tag_icon_occupied "
+      echo " $tag_icon_active "
       ;;
     ':')
       echo " $tag_icon_occupied "
       ;;
     '!')
-      echo "$tag_icon_urgent "
+      echo " $tag_icon_urgent "
       ;;
     *)
       echo " $tag_icon_default "
