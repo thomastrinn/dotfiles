@@ -15,7 +15,7 @@ include-file = $HOME/.config/polybar/modules.ini
 ;    Herbstluft WM Bar
 ;===================================================== 
 
-[bar/hlwm-main-bar]
+[bar/hlwm-primary-bar]
 inherit = bar/master
 
 ; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
@@ -27,4 +27,13 @@ include-file = $HOME/.config/polybar/system-tray.ini
 
 modules-left = hlwm-workspaces
 modules-center = clock date 
+modules-right = volume
+
+[bar/hlwm-secondary-bar]
+inherit = bar/master
+
+monitor = ${env:MONITOR}
+
+modules-left = hlwm-workspaces
+modules-center = clock date
 modules-right = volume

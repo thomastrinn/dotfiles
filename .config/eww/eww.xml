@@ -88,14 +88,14 @@
 
     <windows>
         <window name="side-panel" stacking="fg" focusable="false" screen="0">
-            <geometry x="1560px" y="32px" width="360px" height="100%"/>
+            <geometry x="1560px" y="62px" width="360px" height="100%"/>
             <widget>
                 <side-panel/>
             </widget>
         </window>
 
         <window name="calendar" stacking="fg" focusable="false">
-            <geometry anchor="top center" y="42" width="400"/>
+            <geometry anchor="top center" y="62" width="400"/>
             <widget>
                 <calendar-widget/>
             </widget>

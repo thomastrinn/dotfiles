@@ -28,7 +28,7 @@ tag_icon_active=''
 tag_icon_urgent=''
 tag_icon_occupied=''
 
-default_bg='#434C5E'
+default_bg='#3B4252'
 default_fg='#81A1C1'
 
 active_bg=$default_bg
