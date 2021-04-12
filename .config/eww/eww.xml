@@ -88,7 +88,7 @@
 
     <windows>
         <window name="side-panel" stacking="fg" focusable="false" screen="0">
-            <geometry x="1560px" y="62px" width="360px" height="100%"/>
+            <geometry x="1560px" y="52px" width="360px" height="100%"/>
             <widget>
                 <side-panel/>
             </widget>
