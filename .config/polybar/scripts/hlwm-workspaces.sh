@@ -14,6 +14,9 @@ selected_monitor=$MONITOR
 #active_bg='#81A1C1'
 #active_fg='#2E3440'
 #
+#not_focused_bg='#81A1C1'
+#not_focused_fg='#2E3440'
+#
 #occupied_bg='#4C566A'
 #occupied_fg='#D8DEE9'
 #
@@ -33,6 +36,9 @@ default_fg='#81A1C1'
 
 active_bg=$default_bg
 active_fg='#A3BE8C'
+
+not_focused_bg=$default_bg
+not_focused_fg='#B48EAD'
 
 occupied_bg=$default_bg
 occupied_fg='#81A1C1'
@@ -58,7 +64,7 @@ format_tag() {
     ;;
   '+')
     # + the tag is viewed on the specified MONITOR, but this monitor is not focused.
-    echo "%{B${active_bg}}%{F${active_fg}}"
+    echo "%{B${not_focused_bg}}%{F${not_focused_fg}}"
     ;;
   '-')
     # - the tag is viewed on a different MONITOR, but this monitor is not focused.
