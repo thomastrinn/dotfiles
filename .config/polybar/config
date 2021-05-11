@@ -22,18 +22,64 @@ inherit = bar/master
 ; primary monitor '$(xrandr -q | grep " connected primary" | cut -d ' ' -f1)'
 monitor = ${env:MONITOR}
 
+padding-left = 1
+
 ; load system tray settings
 include-file = $HOME/.config/polybar/system-tray.ini
 
-modules-left = hlwm-workspaces
-modules-center = clock date 
-modules-right = volume
+modules-left = round-left-nord1 hlwm-workspaces round-right-nord1
+modules-center = round-left-nord9 clock date round-right-nord9
+modules-right = round-left-nord6 volume round-left-volume-systemtray-nord1
 
 [bar/hlwm-secondary-bar]
 inherit = bar/master
 
 monitor = ${env:MONITOR}
 
-modules-left = hlwm-workspaces
-modules-center = clock date
-modules-right = volume
+padding = 1
+
+modules-left = round-left-nord1 hlwm-workspaces round-right-nord1
+modules-center = round-left-nord9 clock date round-right-nord9
+modules-right = round-left-nord6 volume round-right-nord6
+
+;================ DESING ELEMENTS =================
+[module/round-right-nord9]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #81A1C1
+
+[module/round-left-nord9]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #81A1C1
+
+;--------
+
+[module/round-right-nord1]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #3B4252
+
+[module/round-left-nord1]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #3B4252
+
+[module/round-left-volume-systemtray-nord1]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #3B4252
+content-background = #ECEFF4
+
+;-------
+
+[module/round-right-nord6]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #ECEFF4
+
+[module/round-left-nord6]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #ECEFF4
+
