@@ -9,7 +9,7 @@ hc() {
 hc emit_hook reload
 
 # set monitor order
-xrandr --output HDMI2 --left-of DP1
+~/.config/herbstluftwm/display-settings.sh
 
 # set background color
 # xsetroot -solid '#2E3440' # use hsetroot instead (issue: https://github.com/chjj/compton/issues/162)
@@ -25,8 +25,8 @@ numlockx on
 
 # autostart applications
 lxsession &
+picom --experimental-backend &
 nm-applet &
-picom &
 eww daemon &
 
 # remove all existing keybindings
@@ -48,8 +48,8 @@ hc keybind $Mod-Return          spawn "${myTerminal}"                       # st
 hc keybind $Mod-Shift-Return    spawn applauncher                           # start app launcher
 hc keybind Mod1-Tab             spawn windowswitcher                        # switch windows
 
-hc keybind $Mod-Mod1-b          spawn brave --profile-directory=Default     # start browser
-hc keybind $Mod-Mod1-w          spawn brave --profile-directory='Profile 1' # start work browser
+hc keybind $Mod-Mod1-b          spawn brave --profile-directory=Default --use-gl=desktop --enable-features=VaapiVideoDecoder     # start browser
+hc keybind $Mod-Mod1-w          spawn brave --profile-directory='Profile 1' --use-gl=desktop --enable-features=VaapiVideoDecoder # start work browser
 hc keybind $Mod-Mod1-g          spawn brave --guest                         # start guest browser session
 hc keybind $Mod-Mod1-s          spawn slack                                 # start slack
 hc keybind $Mod-Mod1-v          spawn virt-manager                          # start virt-manager
@@ -93,7 +93,7 @@ hc keybind $Mod-Shift-j     shift down
 hc keybind $Mod-Shift-k     shift up
 hc keybind $Mod-Shift-l     shift right
 
-hc set default_frame_layout 3   # grid - clients are arranged in an almost quadratic grid
+hc set default_frame_layout grid   # grid - clients are arranged in an almost quadratic grid
 
 # splitting frames
 # create an empty frame at the specified direction
@@ -168,10 +168,13 @@ hc set frame_border_normal_color '#2E3440'
 hc set frame_bg_normal_color '#2E3440'
 hc set frame_bg_active_color '#2E3440'
 hc set frame_border_width 1
-hc set always_show_frame on
-hc set frame_bg_transparent on
+hc set frame_border_inner_width 0
+hc set always_show_frame off
+hc set frame_bg_transparent off
 hc set frame_transparent_width 0
-hc set frame_gap 0
+hc set frame_active_opacity 100
+hc set frame_normal_opacity 0
+hc set frame_gap 5
 
 hc attr theme.active.color '#81A1C1'
 hc attr theme.normal.color '#3B4252'
@@ -190,10 +193,10 @@ hc set window_gap 0
 hc set frame_padding 0
 hc set smart_window_surroundings off
 hc set smart_frame_surroundings on
-hc set mouse_recenter_gap 0
+hc set mouse_recenter_gap 100
 hc set update_dragged_clients 1
-hc set focus_follows_mouse true
-hc set raise_on_focus true
+#hc set focus_follows_mouse true
+#hc set raise_on_focus true
 
 # rules
 hc unrule -F
@@ -215,6 +218,7 @@ hc rule instance='slack'                floating=on
 hc rule instance='pavucontrol'          floating=on
 hc rule instance='transmission-gtk'     floating=on
 hc rule instance='vlc'                  floating=on
+hc rule instance='protonvpn'            floating=on
 
 hc set tree_style '╾│ ├└╼─┐'
 
@@ -229,12 +233,11 @@ hc detect_monitors
 #hc set_monitors 1920x1200+0+0 1920x1200+1920+0
 
 # set real monitor names for each hc monitor
-# it will be used by polybar /  hlwm-workspace.sh to show workspaces in polybar
-hc rename_monitor 0 HDMI2
-hc rename_monitor 1 DP1
+# it will be used by polybar / hlwm-workspace.sh to show workspaces in polybar
+~/.config/herbstluftwm/monitors.sh
 
 # panel
-panel_height=32
+panel_height=52
 for monitor in $(hc list_monitors | cut -d: -f1) ; do
     hc pad $monitor $panel_height
 done
