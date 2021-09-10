@@ -4,25 +4,23 @@
  * Nord Color palette: https://www.nordtheme.com/
  */
 configuration {
-    font:               "SauceCodePro Nerd Font 11";
+    font:                   "SauceCodePro Nerd Font 13";
 
     display-window:     "";
     display-windowcd:   "";
 
     show-icons:         true;
     icon-theme:         "Papirus";
-    //window-thumbnail: true;
+    window-thumbnail: true;
 
     window-format:      "{w}: {t}";
 
-    fullscreen:         false;
-    hide-scrollbar:     true;
     sidebar-mode:       false;
 }
 
 * {
     // define colors:
-    bg:                 #3B4252;    // nord1
+    bg:                 #2E3440;    // nord0
     fg:                 #ECEFF4;    // nord6
 
     urgent-bg:          #D08770;    // nord12
@@ -45,20 +43,12 @@ configuration {
 }
 
 window {
-    location:           south;
-
-    orientation:        horizontal;
-
-    width:              100%;
-
-    border-radius:      12px 12px 0px 0px;
+    fullscreen: true;
 
     children:           [ mainbox ];
 }
 
 mainbox {
-    spacing:            0px;
-
     children:           [ inputbar, listview ];
 }
 
@@ -84,47 +74,72 @@ entry {
 }
 
 listview {
-    layout:             horizontal;
-    columns:            1;
-    lines:              5;
+    layout: vertical;
+    columns: 4;
+    lines: 5;
+    cycle: true;
+    dynamic: true;
+    
+    spacing: 2%;
+    
+    margin: 2%;
+    border: 0px;
+    padding: 0px;
 
-    cycle:              true;
-    dynamic:            true;
-
-    spacing:            0px;
-
-    padding:            11px 11px 11px 11px;
+    scrollbar: false;
 }
 
+
 element {
-    orientation:        vertical;
-
-    spacing:            1%;
-
-    border:             0px;
-    border-radius:      6px;
-
-    padding:            5% 0.5% 5% 0.5%;
+    orientation: vertical;
+    border-radius: 12px;
+    padding: 1% 0.5% 1% 0.5%;
 }
 
 element-icon {
-    size:               64px;
-    vertical-align:     0.5;
+	horizontal-align: 0.5;
+	vertical-align: 0.5;
+    size: 384px;
+    padding: 2%;
+    heighlight: inherit;
+    background-color: inherit;
 }
 
 element-text {
-    vertical-align:     0.5;
-    horizontal-align:   0.5;
+    horizontal-align: 0.5;
 
-    width:              18.854%;
+    heighlight: inherit;
+    background-color: inherit;
+    text-color: inherit;
 }
 
-element urgent {
-    background-color:   @urgent-bg;
-    text-color:         @urgent-fg;
+element normal.normal {
+    background-color: inherit;
+    text-color: inherit;
 }
 
-element selected {
-    background-color:   @selected-bg;
-    text-color:         @selected-fg;
+element normal.urgent {
+    background-color: @urgent-bg;
+    text-color: @urgent-fg;
 }
+
+element normal.active {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element selected.normal {
+    background-color: @selected-bg;
+    text-color: @selected-fg;
+}
+
+element selected.urgent {
+    background-color: @selected-bg;
+    text-color: @selected-fg;
+}
+
+element selected.active {
+    background-color: @selected-bg;
+    text-color: @selected-fg;
+}
+

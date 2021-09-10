@@ -1,16 +1,8 @@
-/**
- * App laucher theme
- *
- * Nord Color palette: https://www.nordtheme.com/
- */
 configuration {
     font:                   "SauceCodePro Nerd Font 13";
 
-    display-drun:           "";
-    drun-display-format:    "{name}";
 
-    show-icons:             true;
-    icon-theme:             "Papirus";
+    show-icons:             false;
 
     disable-history:        false;
 
@@ -61,7 +53,7 @@ window {
     location: center;
     orientation: horizontal;
 
-    width: 20%;
+    width: 30%;
 
     border-radius: 12px;
     margin: 0px;
@@ -73,8 +65,9 @@ window {
 mainbox {
     spacing: 0%;
 
-    children: [inputbar, listview];
+    children: [inputbar, message, listview];
 }
+
 
 inputbar {
     expand: false;
@@ -90,7 +83,7 @@ entry {
     expand: true;
     blink: true;
 
-    placeholder: "Search";
+    placeholder: "";
 
     horizontal-align: 0;
 
@@ -104,6 +97,22 @@ prompt {
 
     background-color: inherit;
     text-color: inherit;
+}
+
+message {
+	expand: false;
+    padding: 0.8%;
+
+    background-color: @input-bg;
+    text-color: @input-fg;
+}
+
+textbox {
+	expand: false;
+    padding: 0.0%;
+
+    background-color: @input-bg;
+    text-color: @input-fg;
 }
 
 listview {
@@ -125,9 +134,6 @@ element {
     padding: 1% 0.5% 1% 0.5%;
 }
 
-element-icon {
-    size: 32px;
-}
 
 element-text {
     vertical-align: 0.5;
@@ -142,11 +148,6 @@ element normal.normal {
     text-color: inherit;
 }
 
-element normal.urgent {
-    background-color: @nord1;
-    text-color: @nord4;
-}
-
 element normal.active {
     background-color: @nord1;
     text-color: @nord4;
@@ -157,27 +158,8 @@ element selected.normal {
     text-color: @selected-fg;
 }
 
-element selected.urgent {
-    background-color: @selected-bg;
-    text-color: @selected-fg;
-}
-
 element selected.active {
     background-color: @selected-bg;
     text-color: @selected-fg;
 }
 
-element alternate.normal {
-    background-color: inherit;
-    text-color: inherit;
-}
-
-element alternate.urgent {
-    background-color: inherit;
-    text-color: inherit;
-}
-
-element alternate.active {
-    background-color: inherit;
-    text-color: inherit;
-}

@@ -1,0 +1,35 @@
+/**
+ * Nord rofi colors
+ *
+ * Nord Color palette: https://www.nordtheme.com/
+ */
+
+* {
+    // Nord Color palette:
+    // Polar Night
+    nord0:          #2E3440;
+    nord1:          #3B4252;
+    nord2:          #434C5E;
+    nord3:          #4C566A;
+
+    // Snow Storm
+    nord4:          #D8DEE9;
+    nord5:          #E5E9F0;
+    nord6:          #ECEFF4;
+
+    // Frost
+    nord7:          #8FBCBB;
+    nord8:          #88C0D0;
+    nord9:          #81A1C1;
+    nord10:         #5E81AC;
+
+    // Nord rofi colors:
+    bg:             @nord1;
+    fg:             @nord6;
+    
+    input-bg:       @nord8;
+    input-fg:       @nord0;
+
+    selected-bg:    @nord3;
+    selected-fg:    @fg; 
+}

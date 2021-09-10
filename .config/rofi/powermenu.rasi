@@ -9,8 +9,6 @@ configuration {
 
     disable-history:        true;
 
-    fullscreen:             false;
-    hide-scrollbar:         true;
     sidebar-mode:           false;
 }
 
@@ -66,7 +64,20 @@ element {
     border-radius:          12px;
 }
 
-element selected {
-    background-color:       @selected-bg;
-    text-color:             @selected-fg;
+element-text {
+    vertical-align: 0.5;
+
+    heighlight: inherit;
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element normal.normal {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element selected.normal {
+    background-color: @selected-bg;
+    text-color: @selected-fg;
 }

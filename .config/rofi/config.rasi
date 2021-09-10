@@ -1,0 +1,11 @@
+configuration {
+	font: "SauceCodePro Nerd Font 13";
+	
+	show-icons: true;
+
+	display-window: "";
+	display-run: "";
+	display-ssh: "";
+	display-drun: "";
+	display-combi: "";
+}
