@@ -47,6 +47,21 @@ urgent_bg=$default_bg
 urgent_fg='#EBCB8B'
 
 ###############################################################################
+# define visible tag names
+###############################################################################
+visible_tags=( {1..9} )
+
+###############################################################################
+# function to test if an array contains an item or not
+###############################################################################
+
+test_element_in_array() {
+    local e
+    for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
+    return 1;
+}
+
+###############################################################################
 # format tags
 ###############################################################################
 
@@ -125,8 +140,13 @@ herbstclient --idle "tag_*" 2>/dev/null | {
     IFS=$'\t' read -ra tags <<<"$(herbstclient tag_status "$selected_monitor")"
     {
       for i in "${tags[@]}"; do
+        tag_status=${i:0:1}
+        tag_name=${i:1}
+
         # Read the prefix from each tag and render them according to that prefix
-        format_tag "${i:0:1}" "${i:1}"
+        if test_element_in_array "$tag_name" "${visible_tags[@]}" ; then
+            format_tag "${i:0:1}" "${i:1}"
+        fi
       done
 
       echo "%{F-}%{B-}" # reset format
