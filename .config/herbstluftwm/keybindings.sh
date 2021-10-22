@@ -137,6 +137,11 @@ hc mousebind $Mod-Button3 resize
 
 # focus
 hc keybind $Mod-BackSpace   cycle_monitor
+
+hc keybind $Mod-Mod1-1      focus_monitor 0
+hc keybind $Mod-Mod1-2      focus_monitor 1
+hc keybind $Mod-Mod1-3      focus_monitor 2
+
 hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
 hc keybind $Mod-c cycle
