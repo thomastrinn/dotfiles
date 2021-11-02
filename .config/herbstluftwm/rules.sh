@@ -22,6 +22,7 @@ hc rule instance='vlc'                  floating=on
 hc rule instance='protonvpn'            floating=on
 hc rule title='Brave'                   floating=on
 
+hc rule title~'.*screen share'          floating=on
 hc rule title='Slack'                   floating=on
 hc rule title~'Slack \| Calling.*'      floating=on
 hc rule title~'.*is sharing.*'          floating=on
