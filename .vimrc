@@ -15,18 +15,19 @@ Plug 'preservim/nerdtree'           " NERDTree: file system explorer (https://gi
 
 call plug#end()
 
-filetype plugin indent on
-" a combination of these commands:
-"filetype on                        " filetype 'detection': try to recognize the type of the file 
-"filetype plugin oni                " This actually loads the file 'ftplugin.vim' in 'runtimepath'.
-                                    " The result is that when a file is edited its plugin file is loaded (if there
-                                    " is one for the detected filetype).
-"filetype indent on                 " This actually loads the file 'indent.vim' in 'runtimepath'.
-                                    " The result is that when a file is edited its indent file is loaded (if there
-                                    " is one for the detected filetype). indent-expression
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set number                          " Show line numbers
-syntax on                           " Enable syntax highlighting
+set wrap
+
+set scrolloff=8
+set sidescrolloff=8
+
+set number
+set relativenumber
+
+filetype plugin indent on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " lightline Settings
@@ -37,7 +38,6 @@ set noshowmode                      " prevent non-normal modes showing in lightl
 let g:lightline = {
       \ 'colorscheme': 'nord',
       \ }
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " IndentLine Settings

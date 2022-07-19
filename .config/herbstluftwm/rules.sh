@@ -18,9 +18,10 @@ hc rule instance='pamac-manager'        floating=on
 hc rule instance='lxpolkit'             floating=on
 hc rule instance='pavucontrol'          floating=on
 hc rule instance='transmission-gtk'     floating=on
-hc rule instance='vlc'                  floating=on
+#hc rule instance='vlc'                  floating=on
 hc rule instance='protonvpn'            floating=on
-hc rule title='Brave'                   floating=on
+#hc rule title='Brave'                   floating=on
+hc rule instance='kazam'                floating=on
 
 hc rule title~'.*screen share'          floating=on
 hc rule title='Slack'                   floating=on
@@ -28,9 +29,8 @@ hc rule title~'Slack \| Slack call with.*' floating=on
 hc rule title~'Slack \| Calling.*'      floating=on
 hc rule title~'.*is sharing.*'          floating=on
 
-hc rule instance='mailspring'           tag=2
-hc rule instance='slack'                tag=2
-hc rule instance='jetbrains-idea'       tag=3
+#hc rule instance='mailspring'           tag=2
+#hc rule instance='slack'                tag=2
 
 hc rule title='calcurse'                tag=calendar
 hc rule instanse='signal'               tag=signal

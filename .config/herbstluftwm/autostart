@@ -42,5 +42,6 @@ pkill -f 'tag_changed_listener.sh'
 lxsession &
 picom &
 nm-applet &
+caffeine &
 eww daemon &
 [ -z "$(pgrep 'transmission')" ] && transmission-gtk -m &

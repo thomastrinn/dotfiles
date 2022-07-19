@@ -148,7 +148,7 @@ herbstclient --idle "tag_*" 2>/dev/null | {
             format_tag "${i:0:1}" "${i:1}"
         fi
       done
-
+    
       echo "%{F-}%{B-}" # reset format
     } | tr -d "\n"
 

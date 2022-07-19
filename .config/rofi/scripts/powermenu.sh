@@ -21,7 +21,8 @@ case $chosen in
         systemctl reboot
         ;;
     $lock)
-        loginctl lock-session ${XDG_SESSION_ID-}
+        betterlockscreen -l
+        #loginctl lock-session ${XDG_SESSION_ID-}
         ;;
     $suspend)
         systemctl suspend

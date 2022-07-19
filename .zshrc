@@ -10,7 +10,7 @@ if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
     source /usr/share/zsh/manjaro-zsh-config
 fi
 
-unsetopt flow_control                                           # If this option is unset, output flow control via start/stop characters (usually assigned to ^S/^Q) is disabled in the shell's editor.
+#unsetopt flow_control                                           # If this option is unset, output flow control via start/stop characters (usually assigned to ^S/^Q) is disabled in the shell's editor.
 
 zstyle ':completion:*' menu select
 
@@ -32,10 +32,11 @@ lfcd () {
 bindkey -s '^o' 'lfcd\n'
 
 # Start keyring deamon
-if [ -n "$DESKTOP_SESSION" ];then
-	eval $(gnome-keyring-daemon --start)
-	export SSH_AUTH_SOCK
-fi
+# No need for this: https://wiki.archlinux.org/title/GNOME/Keyring
+#if [ -n "$DESKTOP_SESSION" ];then
+#	eval $(gnome-keyring-daemon --start)
+#	export SSH_AUTH_SOCK
+#fi
 
 # set default editor
 export EDITOR='vim'

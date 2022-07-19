@@ -8,6 +8,11 @@ hc() {
 # xsetroot -solid '#2E3440' # use hsetroot instead (issue: https://github.com/chjj/compton/issues/162)
 hsetroot -solid '#2E3440'
 
+# set wallpapper
+#feh --bg-fill ~/Pictures/wave-color-nord.png
+feh --bg-fill ~/Pictures/mountains-1412683.jpg
+
+# Theme
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 hc set frame_border_active_color '#81A1C1'
@@ -17,7 +22,7 @@ hc set frame_bg_active_color '#2E3440'
 hc set frame_border_width 1
 hc set frame_border_inner_width 0
 hc set always_show_frame off
-hc set frame_bg_transparent off
+hc set frame_bg_transparent on
 hc set frame_transparent_width 0
 hc set frame_active_opacity 100
 hc set frame_normal_opacity 0
@@ -42,5 +47,4 @@ hc set smart_window_surroundings off
 hc set smart_frame_surroundings on
 hc set mouse_recenter_gap 100
 hc set update_dragged_clients 1
-#hc set focus_follows_mouse true
-#hc set raise_on_focus true
+

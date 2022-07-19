@@ -17,14 +17,17 @@ hc keybind $Mod-Shift-r reload              # Executes the autostart file
 hc keybind $Mod-Shift-c close_or_remove     # Closes the focused window or removes the current frame if no window is focused. In floating mode, this acts as the close command.
 #hc keybind $Mod-Shift-c close_and_remove   # Closes the focused window and removes the current frame if no other window is present in that frame. In floating mode, this acts as the close command.
 
+bravePersonalProfile="--profile-directory=Default"
+braveParams="--use-gl=desktop --enable-features=VaapiVideoDecoder"
+
 # launch apps
 hc keybind $Mod-Return          spawn "${myTerminal}"                       # start terminal
 hc keybind $Mod-Shift-Return    spawn applauncher                           # start app launcher
 
-hc keybind $Mod-Mod1-b          spawn brave --use-gl=desktop --enable-features=VaapiVideoDecoder
-#hc keybind $Mod-Mod1-b          spawn brave --profile-directory=Default --use-gl=desktop --enable-features=VaapiVideoDecoder     # start browser
-hc keybind $Mod-Mod1-w          spawn brave --profile-directory='Profile 1' --use-gl=desktop --enable-features=VaapiVideoDecoder # start work browser
-hc keybind $Mod-Mod1-g          spawn brave --guest                         # start guest browser session
+hc keybind $Mod-Mod1-b          spawn brave ${braveParams} 
+#hc keybind $Mod-Mod1-b          spawn brave ${bravePersonalProfile} ${braveParams}     # start browser
+hc keybind $Mod-Mod1-w          spawn brave --profile-directory='Profile 1' ${braveParams}          # start work browser
+hc keybind $Mod-Mod1-g          spawn brave --guest ${braveParams}                      # start guest browser session
 hc keybind $Mod-Mod1-s          spawn slack                                 # start slack
 hc keybind $Mod-Mod1-v          spawn virt-manager                          # start virt-manager
 hc keybind Print                spawn gnome-screenshot -i                   # start screenshot
