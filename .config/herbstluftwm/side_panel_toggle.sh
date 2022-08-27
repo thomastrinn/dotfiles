@@ -4,7 +4,7 @@ hc() {
     herbstclient "$@"
 }
 
-MONITOR=1
+MONITOR=0
 
 SIDE_PANEL_WIDTH=360
 

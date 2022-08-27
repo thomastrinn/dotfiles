@@ -10,6 +10,9 @@ if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
     source /usr/share/zsh/manjaro-zsh-config
 fi
 
+zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
+zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
+
 #unsetopt flow_control                                           # If this option is unset, output flow control via start/stop characters (usually assigned to ^S/^Q) is disabled in the shell's editor.
 
 zstyle ':completion:*' menu select

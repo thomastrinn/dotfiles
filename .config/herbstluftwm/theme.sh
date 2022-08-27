@@ -27,6 +27,7 @@ hc set frame_transparent_width 0
 hc set frame_active_opacity 100
 hc set frame_normal_opacity 0
 hc set frame_gap 0
+hc set show_frame_decorations=focused_if_multiple
 
 hc attr theme.active.color '#81A1C1'
 hc attr theme.normal.color '#3B4252'
